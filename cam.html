@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Access</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+<script defer src="script.js"></script>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            height:100vh;
+            background:#111;
+            color:white;
+            font-family:Arial;
+        }
+
+        video{
+            width:700px;
+            max-width:90%;
+            border:5px solid white;
+            border-radius:15px;
+            box-shadow:0 0 20px cyan;
+        }
+
+        button{
+            margin-top:20px;
+            padding:12px 25px;
+            font-size:18px;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            background:cyan;
+            color:black;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Web Camera Access</h1>
+
+  <video id="video" autoplay muted></video>
+
+    <button onclick="startCamera()">
+        Start Camera
+    </button>
+
+    <script>
+        async function startCamera() {
+
+            const video = document.getElementById("video");
+
+            try {
+
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: true,
+                    audio: false
+                });
+
+                video.srcObject = stream;
+
+            } catch(error) {
+
+                alert("Camera access denied or not available");
+
+                console.log(error);
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="server.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <h1>Emotion Detection Dashboard</h1>
+
+    <video id="video" width="720" height="560" autoplay muted></video>
+
+    <div class="emotion-box">
+        <h2>Detected Emotion</h2>
+        <p id="emotion">Waiting...</p>
+    </div>
+
+    <div class="recommendation-box">
+        <h2>Personalized Recommendation</h2>
+        <p id="recommendation">No recommendation yet</p>
+    </div>
+
+</div>
+
+</body>
+</html>

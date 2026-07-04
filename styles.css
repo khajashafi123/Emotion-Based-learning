@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a, #6d28d9);
+  perspective: 1200px;
+  position: relative;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.55;
+  animation: floatOrb 8s ease-in-out infinite;
+}
+
+.orb1 {
+  width: 220px;
+  height: 220px;
+  background: rgba(59, 130, 246, 0.55);
+  top: 8%;
+  left: 10%;
+}
+
+.orb2 {
+  width: 280px;
+  height: 280px;
+  background: rgba(168, 85, 247, 0.5);
+  bottom: 8%;
+  right: 8%;
+  animation-delay: 2s;
+}
+
+.orb3 {
+  width: 160px;
+  height: 160px;
+  background: rgba(34, 197, 94, 0.35);
+  top: 65%;
+  left: 18%;
+  animation-delay: 4s;
+}
+
+.login-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.login-box {
+  width: min(920px, 95%);
+  display: flex;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  transform-style: preserve-3d;
+  animation: cardFloat 6s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.login-box:hover {
+  transform: rotateX(6deg) rotateY(-6deg) translateY(-8px);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+}
+
+.login-left {
+  flex: 1;
+  padding: 60px 40px;
+  color: white;
+  background: linear-gradient(135deg, rgba(59,130,246,0.9), rgba(109,40,217,0.9));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateZ(30px);
+}
+
+.login-left h1 {
+  font-size: 44px;
+  margin-bottom: 16px;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.login-left p {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+.login-right {
+  flex: 1;
+  padding: 60px 40px;
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateZ(20px);
+}
+
+.login-right h2 {
+  font-size: 34px;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 15px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  transition: 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  transform: translateZ(8px);
+}
+
+.input-box label {
+  position: absolute;
+  left: 14px;
+  top: 15px;
+  color: #6b7280;
+  background: white;
+  padding: 0 6px;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+  top: -10px;
+  font-size: 12px;
+  color: #6366f1;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.options a {
+  text-decoration: none;
+  color: #6366f1;
+  font-weight: 600;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.35s ease;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.28);
+}
+
+button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 28px rgba(79, 70, 229, 0.35);
+}
+
+.signup-text {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-text a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+  }
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.08);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .login-box {
+    flex-direction: column;
+    transform: none;
+    animation: none;
+  }
+
+  .login-left,
+  .login-right {
+    padding: 35px 25px;
+  }
+
+  .login-left h1 {
+    font-size: 34px;
+  }
+}
